@@ -2,8 +2,9 @@
   "name": "server",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "dev": "nodemon src/index.ts"
+    "dev": "npx tsx --watch ./src/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -12,9 +13,9 @@
   "devDependencies": {
     "@types/node": "^20.12.12",
     "morgan": "^1.10.0",
-    "nodemon": "^3.1.0",
     "prisma": "^5.14.0",
     "ts-node": "^10.9.2",
+    "tsx": "^4.10.2",
     "typescript": "^5.4.5"
   },
   "dependencies": {
