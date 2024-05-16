@@ -10,5 +10,5 @@ export const generateShortLink = async (): Promise<string> => {
     shortUrl += characters.charAt(randomIndex);
   }
 
-  return `http://localhost:3000/${shortUrl}`;
+  return `http://localhost:4000/${shortUrl}`;
 };

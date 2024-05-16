@@ -18,7 +18,7 @@ export const createLink = async (req: Request, res: Response) => {
 };
 
 export const redirectShortLink = async (req: Request, res: Response) => {
-  const shortUrl = `http://localhost:3000/${req.params.shortUrl}`;
+  const shortUrl = `http://localhost:4000/${req.params.shortUrl}`;
 
   try {
     const link = await findLinkInDatabase(shortUrl);
