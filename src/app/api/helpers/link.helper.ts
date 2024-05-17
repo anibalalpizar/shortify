@@ -10,5 +10,5 @@ export const generateShortLink = async (): Promise<string> => {
     shortUrl += characters.charAt(randomIndex);
   }
 
-  return `http://localhost:3000/api/some/${shortUrl}`;
+  return `https://shortify-kappa.vercel.app/api/some/${shortUrl}`;
 };
