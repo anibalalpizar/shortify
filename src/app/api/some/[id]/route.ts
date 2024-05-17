@@ -1,14 +1,14 @@
 import { NextResponse } from "next/server";
-import { findLinkInDatabase } from "../../../services/link.services";
+import { findLinkInDatabase } from "@/app/services/link.services";
+import { connectToDatabase } from "@/app/services/mongodb";
 
 type Params = {
   id: string;
 };
 
 export async function GET(request: Request, { params }: { params: Params }) {
-  console.log("params.shortUrl:", params.id);
+  await connectToDatabase();
   const shortUrl = `http://localhost:3000/api/some/${params.id}`;
-  console.log(shortUrl);
 
   try {
     const link = await findLinkInDatabase(shortUrl);
