@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 export const connectToDatabase = async () => {
   try {
-    const dbUrl = process.env.DATABASE_URL;
+    const dbUrl = "mongodb://mongo:uAcHQCZmYBMmibtjxhGtkbIrXgbeTFCV@monorail.proxy.rlwy.net:43633"
     if (!dbUrl) {
       throw new Error("DATABASE_URL is not defined");
     }
