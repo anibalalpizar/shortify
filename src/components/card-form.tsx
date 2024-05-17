@@ -117,7 +117,7 @@ export function CardDemo({ className, ...props }: CardProps) {
             onChange={(e) => setOriginalUrl(e.target.value)}
           />
         </CardContent>
-        <CardContent>
+        {/* <CardContent>
           <div className="flex items-center space-x-4 rounded-md border p-3">
             <BellRing />
             <div className="flex-1 space-y-1">
@@ -128,7 +128,7 @@ export function CardDemo({ className, ...props }: CardProps) {
               onCheckedChange={setCopyToClipboard}
             />
           </div>
-        </CardContent>
+        </CardContent> */}
         <CardFooter>
           <Button className="w-full" type="submit" disabled={loading}>
             <Check className="mr-2 h-4 w-4" />
