@@ -1,6 +1,6 @@
-import { NextResponse } from "next/server";
-import { generateShortLink } from "@/app/helpers/link.helper";
 import { createLinkInDatabase } from "@/app/services/link.services";
+import { NextResponse } from "next/server";
+import { generateShortLink } from "../helpers/link.helper";
 
 export async function POST(request: Request) {
   const { originalUrl } = await request.json();
