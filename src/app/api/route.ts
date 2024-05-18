@@ -1,6 +1,6 @@
 import { createLinkInDatabase } from "@/app/services/link.services";
 import { NextResponse } from "next/server";
-import { generateShortLink } from "../helpers/link.helper";
+import { generateShortLink } from "./helpers/link.helper";
 import { connectToDatabase } from "@/app/services/mongodb";
 
 export async function POST(request: Request) {

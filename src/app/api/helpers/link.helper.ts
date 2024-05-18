@@ -1,3 +1,5 @@
+import { httpConstants } from "@/constants/http";
+
 export const generateShortLink = async (): Promise<string> => {
   const characters =
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -10,5 +12,5 @@ export const generateShortLink = async (): Promise<string> => {
     shortUrl += characters.charAt(randomIndex);
   }
 
-  return `https://shortify-kappa.vercel.app/api/some/${shortUrl}`;
+  return `${httpConstants.API_URL}api/${shortUrl}`;
 };

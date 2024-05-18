@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { findLinkInDatabase } from "@/app/services/link.services";
 import { connectToDatabase } from "@/app/services/mongodb";
+import { httpConstants } from "@/constants/http";
 
 type Params = {
   id: string;
@@ -8,7 +9,7 @@ type Params = {
 
 export async function GET(request: Request, { params }: { params: Params }) {
   await connectToDatabase();
-  const shortUrl = `https://shortify-kappa.vercel.app/api/some/${params.id}`;
+  const shortUrl = `${httpConstants.API_URL}api/${params.id}`;
 
   try {
     const link = await findLinkInDatabase(shortUrl);
