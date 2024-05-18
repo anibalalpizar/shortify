@@ -4,3 +4,7 @@ export interface Link {
   loading: boolean;
   shortenLink: (link: string) => void;
 }
+
+export type Params = {
+  id: string;
+};

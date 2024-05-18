@@ -1,5 +1,12 @@
-import { NextApiResponse, NextApiRequest } from 'next';
+import { createLinkInDatabase } from "@/app/services/link.services";
+import { NextResponse } from "next/server";
+import { generateShortLink } from "./helpers/link.helper";
+import { connectToDatabase } from "@/app/services/mongodb";
 
-export default async function GET(request: NextApiRequest, response: NextApiResponse) {
-    return response.status(404).json({ message: "Enlace corto no encontrado" });
+export async function POST(request: Request) {
+  await connectToDatabase();
+  const { originalUrl } = await request.json();
+  const shortUrl = await generateShortLink();
+  const createdLink = await createLinkInDatabase(originalUrl, shortUrl);
+  return NextResponse.json(createdLink);
 }

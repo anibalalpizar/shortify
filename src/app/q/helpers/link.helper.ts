@@ -12,5 +12,5 @@ export const generateShortLink = async (): Promise<string> => {
     shortUrl += characters.charAt(randomIndex);
   }
 
-  return `${httpConstants.API_URL}api/${shortUrl}`;
+  return `${httpConstants.API_URL}q/${shortUrl}`;
 };

@@ -1,15 +1,12 @@
-import { NextResponse } from "next/server";
 import { findLinkInDatabase } from "@/app/services/link.services";
 import { connectToDatabase } from "@/app/services/mongodb";
 import { httpConstants } from "@/constants/http";
-
-type Params = {
-  id: string;
-};
+import { Params } from "@/types/link";
+import { NextResponse } from "next/server";
 
 export async function GET(request: Request, { params }: { params: Params }) {
   await connectToDatabase();
-  const shortUrl = `${httpConstants.API_URL}api/${params.id}`;
+  const shortUrl = `${httpConstants.API_URL}q/${params.id}`;
 
   try {
     const link = await findLinkInDatabase(shortUrl);

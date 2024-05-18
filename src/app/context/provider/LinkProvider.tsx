@@ -1,6 +1,6 @@
 "use client";
 
-import { shortenLinkRequest } from "@/app/api/link.api";
+import { shortenLinkRequest } from "@/app/q/link.api";
 import { useState } from "react";
 import { LinkContext } from "../LinkContext";
 
