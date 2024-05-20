@@ -76,7 +76,9 @@ export function CardDemo({ className, ...props }: CardProps) {
 
   React.useEffect(() => {
     if (shortenedLink) {
-      const displayLink = shortenedLink.replace(/^https?:\/\//, ""); // Remove the protocol
+      const displayLink = shortenedLink
+        .replace(/^https?:\/\//, "")
+        .replace(/^www\./, "");
       if (copyToClipboard) {
         navigator.clipboard.writeText(displayLink);
       }
