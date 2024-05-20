@@ -4,11 +4,9 @@ import { httpConstants } from "@/constants/http";
 import { Params } from "@/types/link";
 import { NextResponse } from "next/server";
 
-const https = "https://shortify.art/q/";
-
 export async function GET(request: Request, { params }: { params: Params }) {
   await connectToDatabase();
-  const shortUrl = https + params.id;
+  const shortUrl = `${httpConstants.API_URL}q/${params.id}`;
 
   try {
     const link = await findLinkInDatabase(shortUrl);
