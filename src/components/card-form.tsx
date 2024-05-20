@@ -76,17 +76,16 @@ export function CardDemo({ className, ...props }: CardProps) {
 
   React.useEffect(() => {
     if (shortenedLink) {
+      const displayLink = shortenedLink.replace(/^https?:\/\//, ""); // Remove the protocol
       if (copyToClipboard) {
-        navigator.clipboard.writeText(shortenedLink);
+        navigator.clipboard.writeText(displayLink);
       }
       toast({
         title: "Link generated successfully",
-        description: shortenedLink,
+        description: displayLink,
         action: (
           <ToastAction altText="Copy To Clipboard">
-            <Button
-              onClick={() => navigator.clipboard.writeText(shortenedLink)}
-            >
+            <Button onClick={() => navigator.clipboard.writeText(displayLink)}>
               Copy
             </Button>
           </ToastAction>
