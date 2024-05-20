@@ -1,6 +1,7 @@
 "use client";
 
 import { useLink } from "@/app/hooks/useLink";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,14 +11,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/components/ui/use-toast";
 import { cn } from "@/lib/utils";
 import { isValidHttpUrl as validateUrl } from "@/lib/validation";
 import { ToastAction } from "@radix-ui/react-toast";
-import { BellRing, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import * as React from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { MdOutlineOpenInNew } from "react-icons/md";
+
 import { Input } from "./ui/input";
 
 type CardProps = React.ComponentProps<typeof Card>;
@@ -119,28 +121,41 @@ export function CardDemo({ className, ...props }: CardProps) {
             onChange={(e) => setOriginalUrl(e.target.value)}
           />
         </CardContent>
-        {/* <CardContent>
-          <div className="flex items-center space-x-4 rounded-md border p-3">
-            <BellRing />
-            <div className="flex-1 space-y-1">
-              <p className="text-sm leading-none">Copy to clipboard</p>
-            </div>
-            <Switch
-              checked={copyToClipboard}
-              onCheckedChange={setCopyToClipboard}
-            />
-          </div>
-        </CardContent> */}
         <CardFooter>
           <Button className="w-full" type="submit" disabled={loading}>
-            <Check className="mr-2 h-4 w-4" />
             {loading ? (
-              <AiOutlineLoading3Quarters className="animate-spin" />
+              <AiOutlineLoading3Quarters className="animate-spin mr-2 h-4 w-4" />
             ) : (
-              "Generate"
+              <>
+                <Check className="mr-2 h-4 w-4" />
+                Generate
+              </>
             )}
           </Button>
         </CardFooter>
+
+        <CardContent>
+          {shortenedLink ? (
+            <Badge variant="outline" className="hover:cursor-pointer">
+              <a
+                href={shortenedLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-1 text-sm"
+              >
+                <span>Open in new tab</span>
+                <MdOutlineOpenInNew />
+              </a>
+            </Badge>
+          ) : (
+            <Badge variant="outline" className="hover:cursor-not-allowed">
+              <p className="text-sm flex items-center space-x-1">
+                <span>Open in new tab</span>
+                <MdOutlineOpenInNew />
+              </p>
+            </Badge>
+          )}
+        </CardContent>
       </Card>
     </form>
   );
