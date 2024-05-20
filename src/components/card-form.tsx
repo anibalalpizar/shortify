@@ -71,6 +71,7 @@ export function CardDemo({ className, ...props }: CardProps) {
     }
 
     shortenLink(originalUrl);
+    setOriginalUrl("");
   };
 
   React.useEffect(() => {
