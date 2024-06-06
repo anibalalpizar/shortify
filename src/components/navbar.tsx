@@ -9,7 +9,9 @@ function Navbar() {
     <nav className="flex justify-between">
       <div className="flex items-center">
         <FaPaperclip size={20} />
-        <h1 className="ml-2">Shortify</h1>
+        <h1 className="ml-2 text-2xl font-bold text-gray-800 italic">
+          Shortify
+        </h1>
       </div>
       <div className="flex gap-x-2 items-center">
         <Link
